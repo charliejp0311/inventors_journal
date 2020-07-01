@@ -19,8 +19,7 @@ class InventionsController < ApplicationController
     end
 
     def destroy
-        ###need to make this user verified
-        Invention.destroy(set_invention)
+        
     end
 
     private
