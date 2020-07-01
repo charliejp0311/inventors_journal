@@ -1,0 +1,9 @@
+<%= form_for invention do |f|%>
+    <%=f.label :title %>
+    <%=f.text_field :title %><br/>
+    <%=f.label :goal %>
+    <%=f.text_field :goal %><br/>
+    <%=f.label :description %><br/>
+    <%=f.text_area :description %>
+    <%=f.submit%>
+<%end%>

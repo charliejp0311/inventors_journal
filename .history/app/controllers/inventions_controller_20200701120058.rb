@@ -4,7 +4,7 @@ class InventionsController < ApplicationController
     end
     
     def new
-       @user = User.find_by(session[:user_id])
+        @user=User.find_by(session[:user_id])
        @invention = Invention.new 
     end
     def show
