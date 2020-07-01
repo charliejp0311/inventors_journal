@@ -1,0 +1,9 @@
+<%= invention.title %>
+<%= invention.goal %>
+<%= invention.description %>
+Problems:
+<ol>
+<% invention.problems.each do |prob|%>
+    <li><%= prob.problem %><br/>
+    <%= prob.solution %></li>
+<%end%>
