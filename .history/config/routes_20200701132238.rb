@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :problems, only: [:show, :create, :new]
   end
 
-  resources :problems, only: [:show] do
+  resources :problems do
     resources :solutions, only: [:create, :show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
