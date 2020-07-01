@@ -1,0 +1,6 @@
+<h1><%= @category.category %></h1>
+<ul>
+<% @category.inventions.each do |invent| %>
+    <li><%= link_to invent.title, invention_path(invent) %></li>
+<% end %>
+</ul>
