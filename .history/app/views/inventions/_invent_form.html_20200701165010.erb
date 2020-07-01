@@ -2,7 +2,7 @@
     <%=f.hidden_field :user_id, :value=>@user.id %>
     <%=f.label :category_id %><br/>
     <%=f.collection_check_boxes :category_ids, Category.all, :id, :category_id %><br/>
-    <%= f.fields_for :category, invention.category.build do |c|%>
+    <%= f.fields_for :categories, invention.categories.build do |c|%>
         <%= c.label :category %>
         <%= c.text_field :category %><br/>
     <%end%>
