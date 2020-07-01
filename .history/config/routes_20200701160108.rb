@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   ### without being logged in but when logged in it will have more options 
   resources :inventions, only: [:index, :show] do
     resources :problems, only: [:show, :create, :new]
-    resources :category, only: [:create]
   end
 
   resources :problems, only: [:show] do

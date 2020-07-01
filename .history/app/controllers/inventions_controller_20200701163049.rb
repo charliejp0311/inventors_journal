@@ -11,6 +11,7 @@ class InventionsController < ApplicationController
         @invention = set_invention
     end
     def create
+        byebug
         @invention = Invention.new(invention_params)
         if @invention.save && logged_in?
             redirect_to user_invention_path(current_user, @invention)
@@ -31,7 +32,7 @@ class InventionsController < ApplicationController
             :goal, 
             :description, 
             :user_id, 
-            category_ids:[],
+            :category_id,
             :category_params[
                 :category
             ]

@@ -3,14 +3,13 @@ Rails.application.routes.draw do
   ### Users can be created/destroyed
   resources :users, only: [:new, :create, :destroy, :show] do
     ##a user has complete access to invention routes that exist in controller
-    resources :inventions, only: [:show, :create, :destroy,:new]
+    resources :inventions
   end
 
   ### Inventions can be displayed directly on index page with links to show page
   ### without being logged in but when logged in it will have more options 
   resources :inventions, only: [:index, :show] do
     resources :problems, only: [:show, :create, :new]
-    resources :category, only: [:create]
   end
 
   resources :problems, only: [:show] do
