@@ -16,16 +16,12 @@ class UsersController < ApplicationController
     end
   end
   def destroy
-    if logged_in?
-      user = set_user
-      if user == current_user
-        User.destroy(user)
-        session.clear
-      else 
-        redirect_to user_path(current_user)
-      end
-    else
-      redirect_to '/signin'
+    user = set_user
+    if user == current_user
+      User.destroy(user)
+      session.clear
+    else 
+      redirect_to user_path(current_user)
     end
   end
 
