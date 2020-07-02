@@ -1,7 +1,7 @@
 <%= form_for invention do |f|%>
     <%=f.hidden_field :user_id, :value=>@user.id %>
     <%=f.label :category_id %><br/>
-    <%=f.collection_select :category, Category.all, :id, :category %><br/>
+    <%=f.collection_select invention.category, Category.all, :id, :category_id %><br/>
     <%= f.fields_for :category, invention.category.build do |c|%>
         <%= c.label :category %>
         <%= c.text_field :category %><br/>

@@ -11,10 +11,7 @@ class InventionsController < ApplicationController
     end
 
     def show
-        @user = current_user
         @invention = set_invention
-        @problem = Problem.new
-        @solution = @problem.build_solution
     end
 
     def create
@@ -31,7 +28,7 @@ class InventionsController < ApplicationController
         else
             render 'new'
         end
-
+        
     end
 
     def destroy
@@ -46,7 +43,7 @@ class InventionsController < ApplicationController
             :goal, 
             :description, 
             :user_id, 
-            :category_id,
+            :category_ids,
             :category_params[
                 :category
             ]

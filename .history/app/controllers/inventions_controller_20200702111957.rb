@@ -11,27 +11,21 @@ class InventionsController < ApplicationController
     end
 
     def show
-        @user = current_user
         @invention = set_invention
-        @problem = Problem.new
-        @solution = @problem.build_solution
     end
 
     def create
         @invention = Invention.new(invention_params)
-        ## creating category or finding
         if !!params[:category_id] && !params[:category_id].empty?
             @invention.category = Category.find_by(id: params[:category_id])            
         elsif params[:category_attributes]
             @invention.category = Category.find_or_create_by(category: params[:category_attributes][:category])
         end
-        ## test if valid if so create it
         if @invention.save
             redirect_to user_invention_path(current_user, @invention)
         else
             render 'new'
         end
-
     end
 
     def destroy
@@ -46,7 +40,7 @@ class InventionsController < ApplicationController
             :goal, 
             :description, 
             :user_id, 
-            :category_id,
+            :category_ids,
             :category_params[
                 :category
             ]

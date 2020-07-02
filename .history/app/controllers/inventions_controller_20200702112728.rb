@@ -46,7 +46,7 @@ class InventionsController < ApplicationController
             :goal, 
             :description, 
             :user_id, 
-            :category_id,
+            :category_ids,
             :category_params[
                 :category
             ]
