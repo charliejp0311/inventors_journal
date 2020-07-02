@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    validates_with :authenticate_user, on: :destroy
+    before
     def new
         @user = User.new 
     end
