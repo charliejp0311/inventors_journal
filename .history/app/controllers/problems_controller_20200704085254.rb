@@ -19,7 +19,10 @@ class ProblemsController < ApplicationController
 
     private
     def problem_params
-        params.require(:problem).permit(:problem, :invention_id)
+        params.require(problem).permit(
+            :problem,
+            :invention_id
+        )
     end
 
 end

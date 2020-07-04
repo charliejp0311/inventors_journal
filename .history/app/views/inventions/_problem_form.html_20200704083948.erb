@@ -2,9 +2,6 @@
     <%=f.hidden_field :invention_id, :value=> @invention.id %>
     <%= f.label :problem %>
     <%= f.text_field :problem %><br/>
-    <%=f.fields_for :solution, problem.solutions.build do |s| %>
-        <%= s.label :solution %>
-        <%= s.text_field :solution %><br/>
-    <% end %>
+
     <%= f.submit 'Problem' %>
 <% end %>

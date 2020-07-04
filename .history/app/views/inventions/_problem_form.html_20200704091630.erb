@@ -1,0 +1,8 @@
+<%= form_for problem do |f| %>
+    <%= f.hidden_field :problem, 'post', value: => problem.id %>
+    <%=f.hidden_field :invention_id, :value=> @invention.id %>
+    <%= f.label :problem %>
+    <%= f.text_field :problem %><br/>
+
+    <%= f.submit 'Problem' %>
+<% end %>

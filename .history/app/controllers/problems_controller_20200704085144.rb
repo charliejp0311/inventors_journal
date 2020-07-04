@@ -5,13 +5,10 @@ class ProblemsController < ApplicationController
     
     def create
         @problem = Problem.new(problem_params)
-        byebug
         if @problem.save
             @invention = @problem.invention 
             @user = @invention.user 
-            redirect_to users_invention_path(@user,@invention)
-        else
-        end
+            redirect_to users_invention_path()
     end
     
     def destroy
@@ -19,7 +16,10 @@ class ProblemsController < ApplicationController
 
     private
     def problem_params
-        params.require(:problem).permit(:problem, :invention_id)
+        params.require(problem).permit(
+            :problem,
+            :invention_id
+        )
     end
 
 end

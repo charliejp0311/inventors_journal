@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   ### Users can be created/destroyed
   resources :users, only: [:new, :create, :destroy, :show] do
     ##a user has complete access to invention routes that exist in controller
-    resources :inventions, only: [:show, :create, :destroy,:new]
+    resources :inventions, only: [:show, :create, :destroy,:new] do
+      resources :problems, only: [:create]
+    end
   end
   resources :problems, only: [:create]
   ### Inventions can be displayed directly on index page with links to show page
