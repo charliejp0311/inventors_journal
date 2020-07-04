@@ -15,7 +15,6 @@ class ProblemsController < ApplicationController
     def problem_params
         params.require(problem).permit(
             :problem,
-            :invention_id
             solutions_attributes: [ 
                 :solution
             ]
