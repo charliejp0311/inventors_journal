@@ -14,7 +14,7 @@ class InventionsController < ApplicationController
         @user = current_user
         @invention = set_invention
         @problem = Problem.new
-        @solution = @problem.solutions.build
+        @solution = @problem.build_solution
     end
 
     def create
@@ -47,7 +47,7 @@ class InventionsController < ApplicationController
             :description, 
             :user_id, 
             :category_id,
-            category_attributes: [
+            :category_attributes[
                 :category
             ]
         )

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   ### Inventions can be displayed directly on index page with links to show page
   ### without being logged in but when logged in it will have more options 
-  resources :inventions, only: [:index, :show, :create] do
+  resources :inventions, only: [:index, :show] do
     resources :problems, only: [:show, :create, :new]
     resources :category, only: [:create]
   end
