@@ -8,7 +8,7 @@ class ProblemsController < ApplicationController
         if @problem.save
             @invention = @problem.invention 
             @user = @invention.user 
-            redirect_to user_invention_path(@user,@invention)
+            redirect_to users_invention_path(@user,@invention)
         else
         end
     end

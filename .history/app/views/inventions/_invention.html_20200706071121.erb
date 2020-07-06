@@ -1,0 +1,8 @@
+<h3><%= invention.title %></h3>
+<b><%= invention.goal %></b><br/>
+<i><%= invention.description %></i>
+<br/>
+<% invention.problems.each do |prob| %>%
+    <%= prob.problem %>
+    <%= render pratial: 'solution_form', locals: {solution: prob.solutions.build} %>
+<% end %>
