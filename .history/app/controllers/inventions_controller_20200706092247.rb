@@ -15,7 +15,6 @@ class InventionsController < ApplicationController
     def show
         @user = current_user
         @invention = set_invention
-        @problems = invention_problems
         @problem = Problem.new
     end
 

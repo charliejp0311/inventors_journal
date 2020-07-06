@@ -19,10 +19,11 @@ class ApplicationController < ActionController::Base
     end
 
     def problem_solution
-      if !problem.solutions.empty?
-        render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.first}
-      else
-        render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.build} 
+      invention_problems.map do |problem|
+        if !problem.solutions.empty?
+          render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.first}
+        else
+          render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.build} 
       end
     end
 end

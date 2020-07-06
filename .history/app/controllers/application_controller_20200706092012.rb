@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :authenticate_user, :logged_in?, :current_user, :invention_problems, :problem_solution
+    helper_method :authenticate_user, :logged_in?, :current_user
 
     def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -19,10 +19,11 @@ class ApplicationController < ActionController::Base
     end
 
     def problem_solution
-      if !problem.solutions.empty?
-        render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.first}
-      else
-        render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.build} 
+      invention_problems.map do |problem|
+        if !problem.solutions.empty?
+          render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.first}
+        else
+          render partial: 'views/inventions/solution_form', locals: {solution: problem.solutions.build} 
       end
     end
 end

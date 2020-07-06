@@ -1,6 +1,5 @@
 class ProblemsController < ApplicationController
 
-
     def show
     end
     
@@ -20,6 +19,13 @@ class ProblemsController < ApplicationController
     private
     def problem_params
         params.require(:problem).permit(:problem, :invention_id)
+    end
+    
+    def problem_has_solution?
+      if self.solution
+        render partial: 'views/inventions/solution_form', locals: {solution: prob.solution}
+      else
+        render partial: 'views/inventions/solution_form', locals: {solution: prob.solutions.build}
     end
 
 end
