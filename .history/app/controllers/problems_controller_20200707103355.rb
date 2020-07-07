@@ -5,6 +5,7 @@ class ProblemsController < ApplicationController
     end
     
     def create
+        byebug
         @problem = Problem.new(problem_params)
         if @problem.save
             redirect_to user_invention_path(@problem.user,@problem.invention)

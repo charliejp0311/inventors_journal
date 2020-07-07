@@ -3,8 +3,10 @@ class SolutionsController < ApplicationController
   def create
     @problem = Problem.find_by(params[:solution][:problem_id])
     @solution = Solution.new(solution: params[:solution][:solution])
+
     if @solution.save
-      ProblemSolution.create(problem_id: @problem.id, solution_id: @solution.id)
+      ProblemSolution.new(problem_id: @problem.id, solution_id: @solution.id)
+      byebug
       redirect_to user_invention_path(@problem.user, @problem.invention)
     else
       redirect_to invention_path(@invention)
