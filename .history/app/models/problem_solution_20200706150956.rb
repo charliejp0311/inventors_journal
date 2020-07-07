@@ -1,0 +1,3 @@
+class ProblemSolution < ApplicationRecord
+    
+end

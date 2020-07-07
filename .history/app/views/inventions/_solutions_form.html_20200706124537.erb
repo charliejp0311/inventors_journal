@@ -1,0 +1,6 @@
+    <%=form_for solution do |s| %>
+        <%= s.hidden_field :invention_id, :value=> @invention.id %>
+        <%= s.label :solution %>
+        <%= s.text_field :solution %><br/>
+        <%= s.submit 'Resolve'%>
+    <% end %>
