@@ -53,7 +53,7 @@ class InventionsController < ApplicationController
         if session[:invention_id]
             @invention = Invention.find_by(id: session[:invention_id])
             if current_user == @invention.user
-                solution = Solution.new(solution_params) 
+                solution = @invention.problems.build_solution 
                 if solution.save
                     redirect_to user_invention_path(@invention.user, @invention)
                 else
@@ -92,9 +92,6 @@ class InventionsController < ApplicationController
     end
     def set_invention
         Invention.find_by(id: params[:id])
-    end
-    def solution_params
-        params.permit(:solution, :problem_id)
     end
 
 

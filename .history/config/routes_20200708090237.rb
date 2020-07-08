@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   post '/problems', to: 'inventions#create_prob'
   post '/solutions', to: 'inventions#create_solution'
   
-  resources :inventions, only: [:index, :show, :create] 
+  resources :inventions, only: [:index, :show] 
 
 end

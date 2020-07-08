@@ -1,0 +1,4 @@
+<% if logged_in? %>
+    <i><%= current_user.name %> ~ <%= link_to "Inventions", user_inventions_path(current_user)%></i>
+<% else %>
+<% end %>

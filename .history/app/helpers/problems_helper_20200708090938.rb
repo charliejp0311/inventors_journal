@@ -5,7 +5,7 @@ module ProblemsHelper
         else 
             form_tag({controller: 'inventions', action: 'solutions', method: 'post'}) do 
                 label_tag 'solution' 
-                text_field_tag 'solution' 
+                text_field_tag 'solution' <br/>
                 submit_tag 'Resolve'
             end 
         end 
