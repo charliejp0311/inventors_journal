@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 2020_07_01_145621) do
   create_table "problems", force: :cascade do |t|
     t.string "problem"
     t.integer "invention_id"
-    t.integer "user_id"
+    t.integer "problem_solution_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "solutions", force: :cascade do |t|
     t.string "solution"
+    t.integer "problem_solution_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

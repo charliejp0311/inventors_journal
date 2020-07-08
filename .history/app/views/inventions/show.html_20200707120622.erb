@@ -1,0 +1,8 @@
+<h1>Inventions</h1>
+<%= render partial: 'invention', locals: {invention: @invention} %>
+<% if @invention.problems %>
+    <% @invention.problems.each do |prob|%>
+        <%= render partial: 'display_probs', locals: {prob: prob} %>
+    <% end %>
+<% end %>
+<%= render partial: 'problem_form', locals: {problem: @problem} %>

@@ -1,0 +1,7 @@
+    <%= hidden_field_tag 'invention_id', invention.id %>
+    <%= hidden_field_tag 'problem_id', problem.id %>
+    <%=form_for solution do |s| %>
+        <%= s.label :solution %>
+        <%= s.text_field :solution %><br/>
+        <%= s.submit 'Resolve'%>
+    <% end %>
