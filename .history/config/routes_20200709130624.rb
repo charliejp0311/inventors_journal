@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   ## main page
-  root 'categories#index'
+  root 'sessions#index'
   ## category needs
   resources :categories, only: [:index, :show]
   ## signing in and out
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   ### Users can be created/destroyed
   resources :users, only: [:new, :create, :destroy, :show] do
     ##a user has complete access to invention routes that exist in controller
-    resources :inventions, only: [:show, :create, :destroy, :new, :index]
+    resources :inventions, only: [:show, :create, :destroy, :new]
   end
   
   ## routes specifically for the inventions controller 

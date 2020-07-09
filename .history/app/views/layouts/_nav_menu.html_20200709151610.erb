@@ -3,7 +3,7 @@
     <% if logged_in? %>
         <%= link_to "Invent!", new_user_invention_path(current_user) %>
         <i><%= link_to "#{current_user.name} ~ Inventions", user_inventions_path(current_user)%></i>
-        <%=link_to 'Sign Out', signout_path, method: :post %>
+        <%=link_to 'Sign Out', signout_path %>
     <% else %>
         <%= link_to "New User", new_user_path %>
         <%= link_to "Existing User", '/signin' %>

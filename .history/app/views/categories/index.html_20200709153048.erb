@@ -1,0 +1,8 @@
+<h1>Categories of Inventions</h1>
+<ul>
+<% @categories.each do |category| %>
+    <i><li><%= link_to category.category, category_path(category) %></li><br/>
+    this category has <%= category.inventions.count %></i>
+
+<% end %>
+</ul>

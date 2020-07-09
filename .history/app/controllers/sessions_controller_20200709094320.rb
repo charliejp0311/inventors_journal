@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-
+    def home
+    end
     def new
         @user = User.new 
     end
@@ -8,10 +9,8 @@ class SessionsController < ApplicationController
         if auth_hash = request.env['omniauth.auth']
             if @user = User.find_by(email: auth_hash[:info][:email])
                 session[:user_id] = @user.id 
-                redirect_to user_path(@user)
             else
-                @user = User.new(email: auth_hash[:info][:info], password: SecureRandom.hex)
-                redirect_to user_path(@user)
+
             end
         else
             @user = User.find_by(name: params[:name])
@@ -25,7 +24,6 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.clear
-        redirect_to root_path
+        session.delete :user_id
     end
 end

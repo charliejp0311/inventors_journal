@@ -21,11 +21,11 @@ class InventionsController < ApplicationController
     def create
         @invention = Invention.new(invention_params)
         ## creating category or finding
-        if !params[:invention][:category].empty?
-            category = Category.find_by(id: params[:invention][:category])
+        if !params[:category].empty?
+            category = Category.find_by(id: params[:category])
             @invention = category.inventions.build(invention_params)                       
-        elsif params[:invention][:category_attributes]
-            category = Category.find_or_create_by(category: params[:invention][:category_attributes][:category])
+        elsif params[:category_attributes]
+            category = Category.find_or_create_by(category: params[:category_attributes][:category])
             @invention = category.inventions.build(invention_params)                       
         end
         ## test if valid if so create it

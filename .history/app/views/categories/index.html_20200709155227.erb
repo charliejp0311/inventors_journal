@@ -3,5 +3,6 @@
 <% @categories.each do |category| %>
     <i><li><%= link_to category.category, category_path(category) %><br/>
     this category contains <%= category.inventions.count %> inventions. </i></li>
+
 <% end %>
 </ul>

@@ -1,0 +1,7 @@
+<h4><%= user.name.upcase %></h4>
+<p>You have <%= user.inventions.count %> inventions!</p>
+<ul>
+<% user.inventions.each do |invention|%>
+     <li><%= link_to invention.title, invention_path(invention) %></li>
+<% end %>
+</ul>
