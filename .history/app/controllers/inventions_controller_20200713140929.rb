@@ -86,10 +86,11 @@ class InventionsController < ApplicationController
     end
 
     def destroy
-        invention = set_invention
+        byebug
+        invention = Invention.find_by(set_invention)
         @user = invention.user
         if @user == current_user
-            Invention.destroy(invention.id)
+            Invention.destroy(invention)
             redirect_to user_inventions_path(@user)
         else 
             redirect_to user_inventions_path(current_user)

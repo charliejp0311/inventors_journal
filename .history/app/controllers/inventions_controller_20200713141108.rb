@@ -89,7 +89,7 @@ class InventionsController < ApplicationController
         invention = set_invention
         @user = invention.user
         if @user == current_user
-            Invention.destroy(invention.id)
+            Invention.destroy(invention)
             redirect_to user_inventions_path(@user)
         else 
             redirect_to user_inventions_path(current_user)
