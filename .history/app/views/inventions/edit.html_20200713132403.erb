@@ -1,0 +1,10 @@
+<%=@invention.title %><br/>
+<%=@invention.user.name %>
+<%=@invention.category.category %><br/>
+<%=@invention.goal %><br/>
+<%= form_for @invention do |f| %>
+    <%=f.label :description %><br/>
+    <%=f.text_area :description %><br/>
+    <%=f.submit%>
+<% end %>
+<%= button__to "Kill Idea", {action: 'destroy', method: 'delete'} %>

@@ -1,0 +1,29 @@
+<h1><%=@user.name%>'s Inventions</h1>
+<%= render partial: 'invention', locals: {invention: @invention} %>
+<ul>
+<% @invention.problems.each do |prob|%>
+    <li><b><%= prob.problem %></b><br/></li>
+    <% if prob.solution %>
+        <%= prob.solution.solution %><br/>
+    <% else %>
+        <% if prob.solution && prob.soluiton.errors.any? %>
+            <%= render '/layouts/display_errors', locals:{obj: prob.solution} %>
+        <% end %>
+        <%= form_tag({controller: 'inventions', action: 'create_solution', method: 'post'}) do %>
+            <%= hidden_field_tag 'problem_id', prob.id %>
+            <%= label_tag 'solution' %>
+            <%= text_field_tag 'solution' %><br/>
+            <%= submit_tag 'Resolve'%>
+        <% end %>
+    <% end %>
+<% end %>
+</ul>
+<% if @invention.problems.last && @invention.problems.last.errors.any? %>
+    <%= render '/layouts/display_errors', locals:{obj: @invention.problems.last } %>
+            <%= render '/layouts/display_errors', locals:{obj: prob.solution} %>
+<% end %>
+<%= form_for @invention.problems.build do |f| %>
+    <%= f.label :problem %>
+    <%= f.text_field :problem %><br/>
+    <%= f.submit 'Find A Solution' %>
+<% end %>

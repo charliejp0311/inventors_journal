@@ -1,0 +1,12 @@
+<%= link_to @problem.invention.title, invention_path(@problem.invention) %><br/>
+<%= link_to @problem.invention.user.name, user_path(@problem.invention.user) %><br/>
+<%= @problem.problem %><br/>
+<% if @problem.solution %>
+    <%= @problem.solution.solution %><br/>
+<% else %>
+    <%= form_for @problem.build_solution do |f| %>
+        <%= f.label :solution %>
+        <%= f.text_field :solution %>
+        <%= f.submit "Resolve" %>
+    <% end %>
+<% end %>

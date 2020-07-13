@@ -1,0 +1,10 @@
+<%= @problem.problem %>
+<% if @problem.solution %><br/>
+    <%= @problem.solution.solution %><br/>
+<% else %>
+    <%= form_for @problem.build_solution do |f| %>
+        <%= f.label :solution %>
+        <%= f.text_field :solution %>
+        <%= f.submit "Resolve" %>
+    <% end %>
+<% end %>

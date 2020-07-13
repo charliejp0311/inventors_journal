@@ -1,0 +1,12 @@
+<%= form_for @invention, as: :invention, url: update_invention_path(@invention) do |f| %>
+    <%=f.hidden_field :user_id, :value=>invention.user_id %>
+    <%=f.label :category %><br/>
+    <%=f.collection_select :category, Category.all, :id, :category, include_blank: true %><br/>
+    <%=f.label :title %><br/>
+    <%=f.text_field :title %><br/>
+    <%=f.label :goal %><br/>
+    <%=f.text_field :goal %><br/>
+    <%=f.label :description %><br/>
+    <%=f.text_area :description %><br/>
+    <%=f.submit%>
+<% end %>

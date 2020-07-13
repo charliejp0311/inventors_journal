@@ -1,0 +1,6 @@
+<%= @problem.problem %>
+<%= form_for @problem.solution do |f| %>
+    <%= f.label :solution %>
+    <%= f.text_field :solution %>
+    <%= f.submit "Resolve" %>
+<% end %>

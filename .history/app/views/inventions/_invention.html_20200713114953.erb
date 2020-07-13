@@ -1,0 +1,7 @@
+<h3><%= invention.title %></h3>
+<b><%= invention.goal %></b><br/>
+<% if invention.description.empty? %>
+    <% button_to "Update Invention", action: 'edit'%>
+<% else %>
+    <i><%= invention.description %></i><br/>
+<% end %>

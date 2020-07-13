@@ -1,0 +1,6 @@
+<h1>Create Your Invention!</h1>
+<h2><%= @invention.user.name %></h2>
+<% if @invention.errors.any? %>
+    <%= render patial: '/layouts/display_errors', locals:{obj: @invention } %>
+<% end %>
+<%= render partial: 'invent_form', locals: {invention: @invention}%>
