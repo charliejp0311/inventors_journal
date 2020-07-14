@@ -5,7 +5,7 @@
 **Build**
 
 - build status - Milestone completion (I believe I have met all requirements)
-# built with
+**built with**
 - ruby 2.7
 - rails 6.0.2.3
 - bcrypt and 3rd party authentication
