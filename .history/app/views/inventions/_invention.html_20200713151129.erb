@@ -1,0 +1,8 @@
+<h3><%= invention.title %></h3>
+<b><%= invention.goal %></b><br/>
+<% if invention.description.empty? && invention.user == current_user %>
+    <%= link_to "Update Invention", edit_invention_path(invention)%>
+<% elsif invention.user == current_user %>
+    <i><%= invention.description %></i><br/>
+    <%= link_to "Update Invention", edit_invention_path(invention)%><br/>
+<% end %>

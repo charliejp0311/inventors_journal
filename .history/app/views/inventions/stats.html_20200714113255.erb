@@ -1,0 +1,8 @@
+<h4>Most inventions</h4>
+<% @user_invention_count_hash.each do |k,v| %>
+    <%= k.name %> has <%= v %>! <br/>
+<% end %>
+<h4>Category Popularity</h4>
+<% @category_invention_count_hash.each do |k,v| %>
+    <%= k.name %> contains <%= v %>! <br/>
+<% end %>
