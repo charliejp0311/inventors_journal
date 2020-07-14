@@ -4,7 +4,7 @@
 
 **Build**
 
-- build status - Milestone completion (met all requirements)
+- build status - Milestone completion (I believe I have met all requirements)
 - Used ruby 2.7 to build
 - bcrypt and 3rd party authentication
 
