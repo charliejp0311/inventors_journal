@@ -8,14 +8,12 @@
 - Used ruby 2.7 to build
 - bcrypt and 3rd party authentication
 
-**Recordit**
-
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
 
 ## Installation
 
-- All the `code` required to get started
-- Images of what it should look like
+- First `Clone` the reppository
+- After `Bundle install` to ensure you have all the gems installed locally.
+- Finaly lauch rails server in the directory inorder to runthe application.
 
 ### Clone
 
