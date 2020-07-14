@@ -1,24 +1,24 @@
-# README
+# Inventors Journal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Help improve the flow of creating an invention through this journaling app
 
-Things you may want to cover:
+**Build**
 
-* Ruby version - 2.7
+- build status - Milestone completion (met all requirements)
+- Used ruby 2.7 to build
+- bcrypt and 3rd party authentication
 
-* System dependencies
+**Recordit**
 
-* Configuration
+![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
 
-* Database creation
+## Installation
 
-* Database initialization
+- All the `code` required to get started
+- Images of what it should look like
 
-* How to run the test suite
+### Clone
 
-* Services (job queues, cache servers, search engines, etc.)
+- Clone this repo to your local machine using `https://github.com/charliejp0311/inventors_journal`
 
-* Deployment instructions
 
-* ...
