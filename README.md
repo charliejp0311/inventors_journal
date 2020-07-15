@@ -1,24 +1,23 @@
-# README
+# Inventors Journal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Help improve the flow of creating an invention through this journaling app
 
-Things you may want to cover:
+**Build**
 
-* Ruby version - 2.7
+- build status - Milestone completion (I believe I have met all requirements)
+- ruby 2.7
+- rails 6.0.2.3
+- bcrypt and 3rd party authentication
 
-* System dependencies
 
-* Configuration
+## Installation
 
-* Database creation
+- First `Clone` the reppository
+- After `Bundle install` to ensure you have all the gems installed locally.
+- Finaly lauch rails server in the directory inorder to runthe application.
 
-* Database initialization
+### Clone
 
-* How to run the test suite
+- Clone this repo to your local machine using `https://github.com/charliejp0311/inventors_journal`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
