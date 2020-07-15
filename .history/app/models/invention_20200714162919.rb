@@ -1,6 +1,6 @@
 class Invention < ApplicationRecord
-    scope :user_invention_count, -> {group(:user).count.sort_by{|k,v|-v}}
-    scope :category_invention_count, -> {group(:category).count.sort_by {|k, v| -v}}
+    scope :user_invention_count, -> {group(:user).count.limit(3)}
+    scope :category_invention_count, -> {group(:category).count.limit(3)}
     ## inventions belongs to a user and a category
     belongs_to :category
     belongs_to :user
@@ -12,6 +12,5 @@ class Invention < ApplicationRecord
     accepts_nested_attributes_for :category
     validates :title, presence: true
     validates :goal, presence: true
-    
 
 end

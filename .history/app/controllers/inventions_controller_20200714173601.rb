@@ -18,9 +18,9 @@ class InventionsController < ApplicationController
     end
 
     def stats
-        i = 0
         inventors = Invention.user_invention_count
         @user_invention_count_hash = []
+        i = 0
         3.times do
             @user_invention_count_hash<<inventors[i]
             i+=1 

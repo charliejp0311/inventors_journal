@@ -18,19 +18,18 @@ class InventionsController < ApplicationController
     end
 
     def stats
-        i = 0
-        inventors = Invention.user_invention_count
+        inventors = Invention.user_invention_count.sort_by {|k, v| -v}
         @user_invention_count_hash = []
+        i = 0
         3.times do
             @user_invention_count_hash<<inventors[i]
             i+=1 
         end
         c=0
-        cats = Invention.category_invention_count
+        cats = Invention.category_invention_count.sort_by {|k, v| -v}
         @category_invention_count_hash = []
         3.times do
             @category_invention_count_hash<<cats[c]
-            c+=1
         end
     end
 

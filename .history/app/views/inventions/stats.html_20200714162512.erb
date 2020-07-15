@@ -2,18 +2,13 @@
 <p><i>All stats listed by most inventions.</i></p>
 <h4>Most inventions</h4>
 <div>
-<ol>
 <% @user_invention_count_hash.each do |k,v| %>
-    <li><%=link_to k.name, user_inventions_path(k) %> has <%= v %>!</li>
+    <%=link_to k.name, user_inventions_path(k) %> has <%= v %>! <br/>
 <% end %>
-</div>
-</ol>
-<br/>
+</div><br/>
 <h4>Category Popularity</h4>
 <div>
-<ol>
 <% @category_invention_count_hash.each do |k,v| %>
-    <li><%= link_to k.category, category_path(k) %> contains <%= v %>!</li>
+    <%= link_to k.category, category_path(k) %> contains <%= v %>! <br/>
 <% end %>
-</ol>
 </div>

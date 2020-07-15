@@ -1,5 +1,5 @@
 <% if @user && @user.errors.any? %>
-    <%= render '/layouts/display_errors', locals:{obj: @user} %>
+ <%= render '/layouts/display_errors', locals:{obj: @user} %>
 <% end %>
 <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag 'email' %>
