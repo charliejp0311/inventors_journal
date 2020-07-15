@@ -1,5 +1,17 @@
-<% if @user && @user.errors.any? %>
-    <%= render '/layouts/display_errors', locals:{obj: @user} %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+    <h4>
+        <%= pluralize(@user.errors.count, "error") %>
+        prohibited this post from being saved:
+    </h4>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+    <br/>  
 <% end %>
 <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag 'email' %>
