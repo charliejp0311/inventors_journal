@@ -4,9 +4,8 @@
 <% @invention.problems.each do |prob|%>
     <%if @user == current_user %>
         <li><b><%= link_to prob.problem, invention_problem_path(@invention, prob) %></b><br/></li>
-    <% else %>
+        <% else %>
         <li><b><%=prob.problem%></b></li>
-    <% end %>
     <% if prob.solution %>
         <%= prob.solution.solution %><br/>
     <% else %>

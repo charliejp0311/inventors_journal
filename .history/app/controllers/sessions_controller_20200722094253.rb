@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else 
-                flash[:alert] = 'Failed signin please ensure your eamil and password are correct'
+                flash[:alert] = 'failed signin please ensure your eamil and password are correct'
                 render 'new'
             end
         end

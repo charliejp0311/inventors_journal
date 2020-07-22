@@ -1,6 +1,6 @@
-<% if flash[:alert] %>
+  <% if flash[:alert] %>
     <div id="error_explanation"><%= flash[:alert] %></div>
-<% end %>
+  <% end %>
 <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag 'email' %>
     <%= text_field_tag 'email' %><br/>
