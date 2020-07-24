@@ -25,8 +25,7 @@ Rails.application.routes.draw do
 
   resources :inventions, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :problems, only: [:show]
+    delete '/problems/:id', to: 'problems#destroy', as: 'kill_prob'
   end
-  resources :problems, only: [:show, :create]
-  delete '/problems/:id', to: 'problems#destroy', as: 'kill_prob'
 
 end

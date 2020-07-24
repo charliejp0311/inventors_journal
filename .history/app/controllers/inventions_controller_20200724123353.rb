@@ -4,6 +4,7 @@ class InventionsController < ApplicationController
     skip_before_action :authenticate_user, only: [:index, :show, :stats]
 
     def index
+        @inventions = Invention.all
     end
     
     def new

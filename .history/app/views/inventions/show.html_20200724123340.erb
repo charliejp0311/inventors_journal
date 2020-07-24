@@ -1,6 +1,5 @@
 <h1><%=@invention.user.name%>'s Inventions</h1>
 <%= render partial: 'invention', locals: {invention: @invention} %>
-
 <ul>
 
 <% @invention.problems.each do |prob|%>
@@ -13,13 +12,19 @@
         <%= prob.solution.solution %><br/>
     <% else %>
         <%if @invention.user == current_user %>
-            <%= render partial: 'solutions_form', locals: {solution: prob.build_solution} %>
+            <%= form_tag({controller: 'inventions', action: 'create_solution', method: 'post'}) do %>
+                <%= hidden_field_tag 'problem_id', prob.id %>
+                <%= label_tag 'solution' %>
+                <%= text_field_tag 'solution' %><br/>
+                <%= submit_tag 'Resolve'%>
+            <% end %>
         <% end %>
     <% end %> 
-<% end %>
-
 </ul>
-
 <%if @invention.user == current_user %>
-    <%= render partial: 'problem_form', locals: {problem: Problem.new} %>
+    <%= form_for :problem do |f| %>
+        <%= f.label :problem %>
+        <%= f.text_field :problem %><br/>
+        <%= f.submit 'Find A Solution' %>
+    <% end %>
 <% end %>

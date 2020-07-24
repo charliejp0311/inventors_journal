@@ -4,15 +4,8 @@ class ProblemsController < ApplicationController
     def show
     end
 
-
     def create
-        @problem = Problem.new(problem_params)
-        if @problem.save
-            @problem.invention_id = session[:invention_id]
-            redirect_to user_inventions_path(@problem.invention.user, @problem.invention)
-        else
-            redirect_to "users/#{session[:user_id]}/inventions/#{session[:invention_id]}"
-        end
+        ###fill in 
     end
 
     def destroy
@@ -22,10 +15,6 @@ class ProblemsController < ApplicationController
     end
     
     private
-    def problem_params
-        params.require(:problem).permit(:problem)
-    end
-
     def set_problem
         @problem = Problem.find_by(id: params[:id])
     end

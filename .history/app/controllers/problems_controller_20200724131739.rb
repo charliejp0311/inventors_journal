@@ -4,15 +4,16 @@ class ProblemsController < ApplicationController
     def show
     end
 
-
     def create
         @problem = Problem.new(problem_params)
         if @problem.save
             @problem.invention_id = session[:invention_id]
             redirect_to user_inventions_path(@problem.invention.user, @problem.invention)
         else
+            flash[:alert] = "Problem not saved."
             redirect_to "users/#{session[:user_id]}/inventions/#{session[:invention_id]}"
         end
+        ###fill in 
     end
 
     def destroy
