@@ -34,7 +34,6 @@ class InventionsController < ApplicationController
 
     def create
         @invention = Invention.new(invention_params)
-
         ## creating category or finding
         if !params[:invention][:category].empty?
             category = Category.find_by(id: params[:invention][:category])
@@ -43,7 +42,6 @@ class InventionsController < ApplicationController
             category = Category.find_or_create_by(category: params[:invention][:category_attributes][:category])
             @invention = category.inventions.build(invention_params)                       
         end
-        
         ## test if valid if so create it
         if @invention.save
             redirect_to user_invention_path(current_user, @invention)
