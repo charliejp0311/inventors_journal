@@ -1,10 +1,8 @@
 <h1><%=@user.name%>'s Invention's</h1>
 <ul>
-
-<%= form_with(url: '/search', method: 'get') do %>
-    <%= label_tag(:query, "Invention title:")  %>
-    <%= text_field_tag(:query)  %>
-    <%= submit_tag("Search") %>
+<%= form_for :invention do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 <% end %>
 
 <% @user.inventions.each do |invent|%>

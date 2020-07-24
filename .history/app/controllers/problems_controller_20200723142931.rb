@@ -5,7 +5,7 @@ class ProblemsController < ApplicationController
 
     def destroy
         @invention = @problem.invention
-        @problem.destroy
+        problem.destroy
         redirect_to user_invention_path(@invention.user, @invention)
     end
     

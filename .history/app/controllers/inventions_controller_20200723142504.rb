@@ -63,10 +63,6 @@ class InventionsController < ApplicationController
         redirect_to user_invention_path(@invention.user, @invention)
     end
 
-    def search
-        byebug
-    end
-
     def create_prob
         if session[:invention_id]
             @invention = Invention.find_by(id: session[:invention_id])

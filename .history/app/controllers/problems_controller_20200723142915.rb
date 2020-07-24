@@ -1,11 +1,13 @@
 class ProblemsController < ApplicationController
     before_action :authenticate_user, :set_problem
     def show
+        @problem = set_problem
     end
 
     def destroy
-        @invention = @problem.invention
-        @problem.destroy
+        problem = set_problem
+        @invention = problem.invention
+        problem.destroy
         redirect_to user_invention_path(@invention.user, @invention)
     end
     
