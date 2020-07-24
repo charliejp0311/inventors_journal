@@ -13,7 +13,7 @@
         <%= prob.solution.solution %><br/>
     <% else %>
         <%if @invention.user == current_user %>
-            <%= render partial: 'solutions_form', locals: {solution: prob.build_solution} %>
+            <%= render partial: 'solutions_form', locals: {solution: Solution.new} %>
             <% else %>
             This has yet to be resolved!
         <% end %>
@@ -23,5 +23,5 @@
 </ul>
 
 <%if @invention.user == current_user %>
-    <%= render partial: 'problem_form', locals: {problem: @invention.problems.build} %>
+    <%= render partial: 'problem_form', locals: {problem: Problem.new} %>
 <% end %>

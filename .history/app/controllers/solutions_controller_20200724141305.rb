@@ -2,9 +2,11 @@ class SolutionsController < ApplicationController
   before_action :authenticate_user
 
   def create
+    byebug
     @solution = Solution.new(solution_params)
     if @solution.save
-      redirect_to user_invention_path(@solution.problem.invention.user, @solution.problem.invention)
+        @solution.invention_id = session[:invention_id]
+        redirect_to user_inventions_path(@solution.invention.user, @solution.invention)
     else
         redirect_to "users/#{session[:user_id]}/inventions/#{session[:invention_id]}"
     end

@@ -8,7 +8,7 @@ class ProblemsController < ApplicationController
     def create
         @problem = Problem.new(problem_params)
         if @problem.save
-            redirect_to user_invention_path(@problem.invention.user, @problem.invention)
+            redirect_to user_inventions_path(@problem.invention.user, @problem.invention)
         else
             redirect_to "users/#{session[:user_id]}/inventions/#{session[:invention_id]}"
         end

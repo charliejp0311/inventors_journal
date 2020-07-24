@@ -3,7 +3,9 @@ class SolutionsController < ApplicationController
 
   def create
     @solution = Solution.new(solution_params)
+    p = Problem.find_by(@solution.problem_id)
     if @solution.save
+      p.solution = @solution 
       redirect_to user_invention_path(@solution.problem.invention.user, @solution.problem.invention)
     else
         redirect_to "users/#{session[:user_id]}/inventions/#{session[:invention_id]}"

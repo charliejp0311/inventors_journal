@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   
   ## routes specifically for the inventions controller 
+  post '/solutions', to: 'inventions#create_solution'
   
   get '/stats', to: 'inventions#stats', as: 'stats' 
 

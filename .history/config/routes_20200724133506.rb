@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
   
   ## routes specifically for the inventions controller 
+  post '/problems', to: 'inventions#create_prob'
+  post '/solutions', to: 'inventions#create_solution'
   
   get '/stats', to: 'inventions#stats', as: 'stats' 
 
@@ -23,7 +25,6 @@ Rails.application.routes.draw do
 
   resources :inventions, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :problems, only: [:show]
-    resources :solutions, only: [:create]
   end
   resources :problems, only: [:show, :create]
   resources :solutions, only: [:create, :destroy]

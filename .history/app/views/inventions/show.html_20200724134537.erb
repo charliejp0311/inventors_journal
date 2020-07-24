@@ -23,5 +23,5 @@
 </ul>
 
 <%if @invention.user == current_user %>
-    <%= render partial: 'problem_form', locals: {problem: @invention.problems.build} %>
+    <%= render partial: 'problem_form', locals: {problem: Problem.new} %>
 <% end %>
