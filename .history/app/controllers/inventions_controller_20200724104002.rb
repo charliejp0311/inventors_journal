@@ -12,11 +12,11 @@ class InventionsController < ApplicationController
     end
 
     def show
+        @invention = set_invention
         @user = @invention.user
         session[:invention_id] = @invention.id
     end
 
-    ## fix this so most logic is in the scope method
     def stats
         i = 0
         inventors = Invention.user_invention_count
@@ -140,7 +140,7 @@ class InventionsController < ApplicationController
     end
 
     def set_invention
-        @invention = Invention.find_by(id: params[:id])
+        Invention.find_by(id: params[:id])
     end
 
     def solution_params

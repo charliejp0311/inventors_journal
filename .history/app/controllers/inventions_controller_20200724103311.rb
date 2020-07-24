@@ -1,9 +1,9 @@
 class InventionsController < ApplicationController
-    before_action :authenticate_user, :set_invention
-    skip_before_action :set_invention, only: [:index, :new]
+    before_action :authenticate_user
     skip_before_action :authenticate_user, only: [:index, :show, :stats]
 
     def index
+        @user = current_user
         @inventions = Invention.all
     end
     
@@ -12,11 +12,11 @@ class InventionsController < ApplicationController
     end
 
     def show
+        @invention = set_invention
         @user = @invention.user
         session[:invention_id] = @invention.id
     end
 
-    ## fix this so most logic is in the scope method
     def stats
         i = 0
         inventors = Invention.user_invention_count
@@ -66,7 +66,7 @@ class InventionsController < ApplicationController
     def search
         byebug
     end
-    ## move to its own controller
+
     def create_prob
         if session[:invention_id]
             @invention = Invention.find_by(id: session[:invention_id])
@@ -85,7 +85,7 @@ class InventionsController < ApplicationController
             redirect_to inventions_path
         end
     end
-    ## move to its own controller
+
     def create_solution
         if session[:invention_id]
             @invention = Invention.find_by(id: session[:invention_id])
@@ -130,19 +130,15 @@ class InventionsController < ApplicationController
             ]
         )
     end
-
     def update_params
         params.require(:invention).permit(:description)
     end
-
     def problem_params
         params.require(:problem).permit(:problem)
     end
-
     def set_invention
-        @invention = Invention.find_by(id: params[:id])
+        Invention.find_by(id: params[:id])
     end
-
     def solution_params
         params.permit(:solution, :problem_id)
     end

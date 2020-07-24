@@ -12,7 +12,6 @@ class InventionsController < ApplicationController
     end
 
     def show
-        @user = @invention.user
         session[:invention_id] = @invention.id
     end
 

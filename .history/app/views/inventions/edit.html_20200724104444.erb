@@ -1,6 +1,6 @@
 <h2><%=@invention.title %></h2><br/>
-<b><%=@invention.user.name %></b><br/>
-<i><%=@invention.category.category %></i><br/>
+<b><emp><%=@invention.user.name %></emp></b>
+<%=@invention.category.category %><br/>
 <%=@invention.goal %><br/>
 <%= form_for @invention do |f| %>
     <%=f.label :description %><br/>

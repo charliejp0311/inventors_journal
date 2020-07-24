@@ -11,11 +11,6 @@ class SolutionsController < ApplicationController
     # end
   end
 
-  def destroy
-    ### fill this in 
-    
-  end
-
   private
   def solution_params
     params.require(:solution).permit(:solution, :invention_id)

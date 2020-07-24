@@ -16,7 +16,6 @@ class InventionsController < ApplicationController
         session[:invention_id] = @invention.id
     end
 
-    ## fix this so most logic is in the scope method
     def stats
         i = 0
         inventors = Invention.user_invention_count
