@@ -4,11 +4,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
   def show
-    if params[:query]
-      @inventions = Invention.where(category_id: @category.id).search(params[:query])
-    else
-      @inventions = Invention.all
-    end
+    @inventions = Invention.where(category_id: @category.id).search()
+    byebug
   end
 
   private
@@ -17,7 +14,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(category).permit(:category,:query)
+    params.require(category).permit(:category)
   end
-
 end

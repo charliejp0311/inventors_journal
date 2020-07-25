@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
     if params[:query]
       @inventions = Invention.where(category_id: @category.id).search(params[:query])
     else
-      @inventions = Invention.all
+      @invention = Invention.all
     end
   end
 
@@ -17,7 +17,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(category).permit(:category,:query)
+    params.require(category).permit(:category)
   end
-
 end

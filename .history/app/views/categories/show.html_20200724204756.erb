@@ -1,12 +1,12 @@
 <h1><%= @category.category %></h1>
-<%= form_tag(category_path(@category), method: 'get') do %>
+<%= form_tag(category_inventions_path(@category), method: 'get') do %>
     <%= label_tag(:query, "Invention title:")  %>
     <%= text_field_tag(:query)  %>
     <%= submit_tag("Search") %>
 <% end %>
 
 <ul>
-<% @inventions.each do |invent| %>
+<% @category.inventions.each do |invent| %>
     <li><%= link_to invent.title, invention_path(invent) %></li>
 <% end %>
 </ul>

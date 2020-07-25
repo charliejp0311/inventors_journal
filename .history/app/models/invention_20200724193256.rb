@@ -13,12 +13,8 @@ class Invention < ApplicationRecord
     validates :title, presence: true
     validates :goal, presence: true
 
-    def self.search(q)
-        if q 
-            where('title like ?', "%#{q}%")
-        else
-            all 
-        end
+    def self.look_for(u,q)
+        where(user_id: u).where('title like ?', "%#{q}%")
     end
     
 

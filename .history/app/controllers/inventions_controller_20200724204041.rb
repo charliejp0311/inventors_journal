@@ -65,6 +65,15 @@ class InventionsController < ApplicationController
         redirect_to user_invention_path(@invention.user, @invention)
     end
 
+    def search
+        @user = set_user
+        if params[:query] && !params[:query].empty?
+            @inventions = Invention.where(@user).search(get_query)
+        else
+            @inventions = @user.inventions            
+        end
+    end
+
     def destroy
         invention = set_invention
         @user = invention.user

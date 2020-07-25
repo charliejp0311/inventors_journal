@@ -1,0 +1,16 @@
+<h1><%=@user.name%>'s Invention's</h1>
+<ul>
+<%= render :partial 'search_form', :locals {:query Invention.all, }%>
+<%= form_with(url: '/search', method: 'get') do %>
+    <%= hidden_field_tag :user_id @user.id %>
+    <%= label_tag(:query, "Invention title:")  %>
+    <%= text_field_tag(:query)  %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+<%# change this to a method call possibly in order to set up the filtered search %>
+
+<% @user.inventions.each do |invent|%>
+    <li><%= link_to invent.title, invention_path(invent)%></li>
+<%end%>
+</ul>

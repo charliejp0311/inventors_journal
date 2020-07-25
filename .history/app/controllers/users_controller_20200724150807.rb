@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user
-  skip_before_action :set_user, only: [:new, :create]
+  skip_before_action :set_user, only: [:new]
   def new
     @user = User.new
   end
-
   def show
+    @user = set_user
     @invention = Invention.new
   end
-  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -18,7 +17,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
   def destroy
     if logged_in?
       user = set_user
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(id: params[:id])
+    User.find_by(id: params[:id])
   end
 
 end

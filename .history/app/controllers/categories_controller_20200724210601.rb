@@ -5,9 +5,10 @@ class CategoriesController < ApplicationController
   end
   def show
     if params[:query]
+      byebug
       @inventions = Invention.where(category_id: @category.id).search(params[:query])
     else
-      @inventions = Invention.all
+      @invention = Invention.all
     end
   end
 

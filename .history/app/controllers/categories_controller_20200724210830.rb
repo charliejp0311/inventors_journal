@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
     if params[:query]
       @inventions = Invention.where(category_id: @category.id).search(params[:query])
     else
-      @inventions = Invention.all
+      @invention = Invention.all
     end
   end
 

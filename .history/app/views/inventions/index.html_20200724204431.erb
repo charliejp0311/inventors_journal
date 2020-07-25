@@ -6,6 +6,8 @@
     <%= submit_tag("Search") %>
 <% end %>
 
+<%# change this to a method call possibly in order to set up the filtered search %>
+
 <ul>
 <% @inventions.each do |invent|%>
     <li><%= link_to invent.title, invention_path(invent)%></li>

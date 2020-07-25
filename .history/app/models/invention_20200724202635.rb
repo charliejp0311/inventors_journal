@@ -17,7 +17,7 @@ class Invention < ApplicationRecord
         if q 
             where('title like ?', "%#{q}%")
         else
-            all 
+            self.all 
         end
     end
     

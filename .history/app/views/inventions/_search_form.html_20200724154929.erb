@@ -1,0 +1,6 @@
+<%= form_for query do |q| %>
+    <%= q.hidden_field :user_id @user.id %>
+    <%= q.label(:query, "Invention title:")  %>
+    <%= q.text_field(:query)  %>
+    <%= q.submit("Search") %>
+<% end %>

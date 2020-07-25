@@ -1,10 +1,13 @@
 <h1><%=@user.name%>'s Invention's</h1>
 
-<%= form_tag(user_inventions_path(@user), method: 'get') do %>
+<%= form_with(url: '/search', method: 'get') do %>
+    <%= hidden_field_tag(:user_id, @user.id) %>
     <%= label_tag(:query, "Invention title:")  %>
     <%= text_field_tag(:query)  %>
     <%= submit_tag("Search") %>
 <% end %>
+
+<%# change this to a method call possibly in order to set up the filtered search %>
 
 <ul>
 <% @inventions.each do |invent|%>

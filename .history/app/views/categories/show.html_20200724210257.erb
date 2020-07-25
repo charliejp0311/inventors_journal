@@ -6,7 +6,7 @@
 <% end %>
 
 <ul>
-<% @inventions.each do |invent| %>
+<% @category.inventions.each do |invent| %>
     <li><%= link_to invent.title, invention_path(invent) %></li>
 <% end %>
 </ul>

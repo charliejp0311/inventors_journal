@@ -4,11 +4,9 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
   def show
     @invention = Invention.new
   end
-  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -18,7 +16,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
   def destroy
     if logged_in?
       user = set_user

@@ -5,7 +5,7 @@ class InventionsController < ApplicationController
 
     def index
         params[:user_id] ? @user = User.find_by(id: params[:user_id]) : @user = current_user
-        @inventions = Invention.where(user_id: @user.id).search(get_query)
+        @inventions = @user.inventions
     end
     
     def new
@@ -63,6 +63,16 @@ class InventionsController < ApplicationController
         @invention = set_invention
         @invention.update(update_params)
         redirect_to user_invention_path(@invention.user, @invention)
+    end
+
+    def search
+        @user = set_user
+        if params[:query] && !params[:query].empty?
+            @inventions = Invention.look_for(@user.id, get_query)
+        else
+            @inventions = @user.inventions            
+        end
+        render 'index'
     end
 
     def destroy

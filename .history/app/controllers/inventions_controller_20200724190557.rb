@@ -1,11 +1,11 @@
 class InventionsController < ApplicationController
     before_action :authenticate_user, :set_invention
-    skip_before_action :set_invention, only: [:index, :new, :search]
+    skip_before_action :set_invention, only: [:index, :new]
     skip_before_action :authenticate_user, only: [:index, :show, :stats]
 
     def index
         params[:user_id] ? @user = User.find_by(id: params[:user_id]) : @user = current_user
-        @inventions = Invention.where(user_id: @user.id).search(get_query)
+        @inventions = @user.inventions
     end
     
     def new
@@ -65,6 +65,16 @@ class InventionsController < ApplicationController
         redirect_to user_invention_path(@invention.user, @invention)
     end
 
+    def search
+        @user = User.find_by(id: params[:user_id])
+        byebug
+        if params[:query] && !params[:query].empty?
+            @inventions = @user.inventions.last.search(params[:query])
+        else
+            @inventions = @user.inventions            
+        end
+    end
+
     def destroy
         invention = set_invention
         @user = invention.user
@@ -98,16 +108,4 @@ class InventionsController < ApplicationController
         @invention = Invention.find_by(id: params[:id])
     end
 
-    def search_params(*args)
-        params.permit(*args)
-    end
-
-    def set_user
-        User.find_by(id: search_params(:user_id)[:user_id])
-    end
-
-    def get_query
-        search_params(:query)[:query]
-    end
-    
 end

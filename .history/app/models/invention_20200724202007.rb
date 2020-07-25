@@ -15,9 +15,9 @@ class Invention < ApplicationRecord
 
     def self.search(q)
         if q 
-            where('title like ?', "%#{q}%")
+            self.where(user_id: self.user_id).where('title like ?', "%#{q}%")
         else
-            all 
+            self.all 
         end
     end
     
