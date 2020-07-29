@@ -1,0 +1,20 @@
+search box on the show page for all inventions
+
+form on index page
+form will query database for "whats in the search box"
+return matches
+
+So to make this happen I initially thought that I would make a new route and everything but instead I made the form as a 
+get request to the home page.  I then made a class method that did a search if there was anything like the queried item.  
+I no longer needed the routes I initially thought I would need.  Next I wanted to make sure I understood it a little better 
+and could use it somewhere else so I added the same functionality to the categories index page. 
+
+complete this and talk about what and how I did this 
+
+clean up code to make it more DRY
+cleaned up the scope methods to make them better at what they returned. exactly the 3 I wanted removed the extra code there. 
+this also allowed me to do the function in the individual scope methods 
+
+separation of concerns--- move problems and solutions to individual controllers
+I moved the create methods out to separate controllers for problems and solutions which ended up making the code overall simpler more DRY 
+I also removed calls and variables that I could get from other places (create_user). added the remove solution option to allow for the removal 

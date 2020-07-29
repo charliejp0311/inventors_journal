@@ -18,7 +18,7 @@ class InventionsController < ApplicationController
 
     ## fix this so most logic is in the scope method
     def stats
-        @inventors = Invention.user_invention_count
+        @inventors = Invention.user_invention_count.map {|i,c| "<li><%link_to #{User.find_by(id: i).name}, user_inventions_path(#{User.find_by(id: i)})%> has <%= #{c}%></i>"}
         @categories = Invention.category_invention_count
     end
 

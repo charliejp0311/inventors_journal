@@ -11,16 +11,11 @@ class SolutionsController < ApplicationController
   end
 
   def destroy
-    @solution = set_solution
-    @problem = @solution.problem 
-    @solution.destroy
-    redirect_to "/inventions/#{@problem.invention.id}/problems/#{@problem.id}"
+    byebug
+    
   end
 
   private
-  def set_solution
-  Solution.find_by(id: params[:id])
-  end
   def solution_params
     params.require(:solution).permit(:solution,:problem_id)
   end

@@ -3,7 +3,7 @@
 <h4>Most inventions</h4>
 <div>
 <ol>
-<% @inventors.each do |k,v| %>
+<% @inventors.each do |inventor| %>
     <li><%= link_to User.find_by(id: k).name, user_inventions_path(User.find_by(id: k)) %> has <%= v %>!</li>
 <% end %>
 </div>
@@ -13,7 +13,7 @@
 <div>
 <ol>
 <% @categories.each do |k,v| %>
-    <li><%= link_to Category.find_by(id: k).category, category_path(Category.find_by_id(k)) %> contains <%= v %>!</li>
+    <li><%= link_to Category.find_by_id(k).category, category_path(Category.find_by_id(k)) %> contains <%= v %>!</li>
 <% end %>
 </ol>
 </div>

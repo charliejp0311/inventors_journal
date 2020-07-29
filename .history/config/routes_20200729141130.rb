@@ -25,8 +25,7 @@ Rails.application.routes.draw do
     delete '/problems/:id', to: 'problems#destroy', as: 'kill_prob'
   end
   resources :problems, only: [:show, :create, :destroy]
-  resources :solutions, only: [:create]
-  delete '/solutions/:id', to: 'solutions#destroy', as: 'clear_solution'
+  resources :solutions, only: [:create, :destroy]
   delete '/problems/:id', to: 'problems#destroy', as: 'kill_prob'
 
 end

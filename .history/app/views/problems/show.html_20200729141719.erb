@@ -2,7 +2,7 @@
 <%= link_to @problem.invention.user.name, user_path(@problem.invention.user) %><br/>
 <h4><%= @problem.problem %></h4>
 <% if @problem.solution %>
-    <%= @problem.solution.solution %><%=link_to 'Remove solution', clear_solution_path(@problem.solution), method: 'delete' %><br/>
+    <%= @problem.solution.solution %><%=link_to 'Remove solution', clear_solution_path(@problem.solution)%><br/>
 <% else %>
     <%= form_for @problem.build_solution do |f| %>
         <%= f.label :solution %>

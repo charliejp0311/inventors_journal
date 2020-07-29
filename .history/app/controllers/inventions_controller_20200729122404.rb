@@ -5,7 +5,7 @@ class InventionsController < ApplicationController
 
     def index
         params[:user_id] ? @user = User.find_by(id: params[:user_id]) : @user = current_user
-        @inventions = Invention.where(user_id: @user.id).search(get_query)
+        @inventions = Invention.search(@user.id, get_query)
     end
     
     def new

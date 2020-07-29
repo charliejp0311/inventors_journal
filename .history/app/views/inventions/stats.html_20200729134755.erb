@@ -1,0 +1,19 @@
+<h2>Invention statistics</h2>
+<p><i>All stats listed by most inventions.</i></p>
+<h4>Most inventions</h4>
+<div>
+<ol>
+<% @inventors.each do |inventor| %>
+    <%= inventor %>
+<% end %>
+</div>
+</ol>
+<br/>
+<h4>Category Popularity</h4>
+<div>
+<ol>
+<% @categories.each do |k,v| %>
+    <li><%= link_to Category.find_by_id(k).category, category_path(Category.find_by_id(k)) %> contains <%= v %>!</li>
+<% end %>
+</ol>
+</div>

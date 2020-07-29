@@ -1,6 +1,6 @@
 class Invention < ApplicationRecord
-    scope :user_invention_count, -> {group(:user_id).order('count_all desc').limit(3).count}
-    scope :category_invention_count, -> {group(:category_id).order('count_all desc').limit(3).count}
+    scope :user_invention_count, -> {group(:user, :count).order('count_all desc').limit(3).count}
+    scope :category_invention_count, -> {group(:category_id, :count).order('count_all desc').limit(3).count}
     ## inventions belongs to a user and a category
     belongs_to :category
     belongs_to :user
@@ -20,7 +20,8 @@ class Invention < ApplicationRecord
             all 
         end
     end
-    
+
+  
     
 
 end

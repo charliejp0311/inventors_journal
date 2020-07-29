@@ -20,7 +20,8 @@ class Invention < ApplicationRecord
             all 
         end
     end
-    
+
+  
     
 
 end
