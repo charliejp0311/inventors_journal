@@ -1,0 +1,14 @@
+search box on the show page for all inventions
+form on index page
+form will query database for "whats in the search box"
+return matches
+
+I added a form that sent a get request with a query field back to the index page.  
+I did this for the category page as well as the individual inventors pages. 
+
+**clean up code to make it more DRY**
+**separation of concerns--- move problems and solutions to individual controllers**
+
+I removed as many redundant calls like @user = current user in the controller 
+when I can call that from the view as well.  I moved both problems and solutions activities
+to their own controller.  I fixed the scope methods and added one for the search function. 
