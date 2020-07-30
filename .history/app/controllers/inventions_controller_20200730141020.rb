@@ -8,7 +8,7 @@ class InventionsController < ApplicationController
         if params[:query]
             @inventions = Invention.where(user_id: @user.id).search(get_query)
         else 
-            @inventions = @user.inventions 
+            @inventions = Invention.where(user_id: @user.id).all
         end
     end
     

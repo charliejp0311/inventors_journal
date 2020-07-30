@@ -3,12 +3,9 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
   end
+  
   def show
-    if params[:query]
-      @inventions = Invention.where(category_id: @category.id).search(params[:query])
-    else
-      @inventions = @category.inventions
-    end
+    @inventions = Invention.where(category_id: @category.id).search(params[:query])
   end
 
   private
